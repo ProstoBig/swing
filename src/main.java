@@ -31,7 +31,8 @@ public class main extends JFrame {
         public void actionPerformed(ActionEvent e) {
             String uno = merping.getText();
             String dos = merpster.getText();
-            merper.setText("Вітаю " + uno + " " + dos);
+            String res = (uno.isEmpty() && dos.isEmpty()) ? "мавпа" : "Вітаю " + uno + " " + dos;
+            merper.setText(res);
         }
     }
 
