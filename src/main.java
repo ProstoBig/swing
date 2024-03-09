@@ -2,11 +2,11 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class main extends JFrame{
+public class main extends JFrame {
 
     private JPanel Merp;
-    private JTextField cumshot;
-    private JTextField Negromancer;
+    private JTextField merping;
+    private JTextField merpster;
     private JButton okButton;
     private JButton clearButton;
     private JLabel merper;
@@ -17,25 +17,35 @@ public class main extends JFrame{
         setSize(450, 350);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
-        okButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String uno = cumshot.getText();
-                String dos = Negromancer.getText();
-                merper.setText("Erm " + uno + " " + dos);
-            }
-        });
-        clearButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                cumshot.setText("");
-                Negromancer.setText("");
-                merper.setText("");
-            }
-        });
+
+        // Внутрішній клас для обробки подій кнопки "OK"
+        okButton.addActionListener(new OKButtonListener());
+
+        // Внутрішній клас для обробки подій кнопки "Clear"
+        clearButton.addActionListener(new ClearButtonListener());
     }
 
-    public static void main(String[] args){
+    // Внутрішній клас для обробки подій кнопки "OK"
+    private class OKButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String uno = merping.getText();
+            String dos = merpster.getText();
+            merper.setText("Вітаю " + uno + " " + dos);
+        }
+    }
+
+    // Внутрішній клас для обробки подій кнопки "Clear"
+    private class ClearButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            merping.setText("");
+            merpster.setText("");
+            merper.setText("");
+        }
+    }
+
+    public static void main(String[] args) {
         main n = new main();
     }
 }
