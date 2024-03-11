@@ -18,25 +18,18 @@ public class main extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
 
-        // Внутрішній клас для обробки подій кнопки "OK"
         okButton.addActionListener(new OKButtonListener());
-
-        // Внутрішній клас для обробки подій кнопки "Clear"
         clearButton.addActionListener(new ClearButtonListener());
     }
-
-    // Внутрішній клас для обробки подій кнопки "OK"
     private class OKButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             String uno = merping.getText();
             String dos = merpster.getText();
-            String res = (uno.isEmpty() && dos.isEmpty()) ? "мавпа" : "Вітаю " + uno + " " + dos;
+            String res = (uno.isEmpty() && dos.isEmpty()) ? "Введіть дані" : "Вітаю " + uno + " " + dos;
             merper.setText(res);
         }
     }
-
-    // Внутрішній клас для обробки подій кнопки "Clear"
     private class ClearButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
